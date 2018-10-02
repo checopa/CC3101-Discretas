@@ -48,7 +48,10 @@ def BuildModel(formula):
     else:
         literales = []
         while len(formula) >= 1:
-            lit = formula[0][0]
+            lit=formula[0][0]
+            for i in formula:
+                if len(i)==1:
+                    lit=i[0]
             if IsSatisfiable(SetLiteral(formula, lit)):
                 literales.append([lit, True])
                 formula = SetLiteral(formula, lit)
