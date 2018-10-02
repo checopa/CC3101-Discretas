@@ -46,28 +46,25 @@ def BuildModel(formula):
     if not IsSatisfiable(formula):
         return (False, {})
     else:
-        literales = []
+        literales = {}
         while len(formula) >= 1:
             lit=formula[0][0]
             for i in formula:
                 if len(i)==1:
                     lit=i[0]
             if IsSatisfiable(SetLiteral(formula, lit)):
-                literales.append([lit, True])
+                if lit<0:
+                    literales[-lit]=False
+                else:
+                    literales[lit]=True
                 formula = SetLiteral(formula, lit)
             else:
-                literales.append([-lit, True])
+                if lit<0:
+                    literales[-lit]=False
+                else:
+                    literales[lit]=True
                 formula = SetLiteral(formula, -lit)
-        for i in literales:
-            if i[0] < 0:
-                i[0] = -i[0]
-                i[1] = not i[1]
-        literales.sort()
-        newliterales={}
-        for i in literales:
-            newliterales[i[0]]=i[1]
-        return (True, newliterales)
-
+        return (True, literales)
 
 class Tests(unittest.TestCase):
     def setUp(self):
