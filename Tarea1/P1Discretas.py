@@ -38,7 +38,7 @@ def IsSatisfiable(formula):
         if len(i) == 1:
             lit = i[0]
             break
-    return IsSatisfiable(SetLiteral(formula, lit))
+    return (IsSatisfiable(SetLiteral(formula, lit)) or IsSatisfiable(SetLiteral(formula,-lit)))
 
 
 def BuildModel(formula):
