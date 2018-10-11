@@ -1,2 +1,2 @@
 # Discretas
-Tareas CC3101 primavera 2018
+Tareas CC3101 Primavera 2018
