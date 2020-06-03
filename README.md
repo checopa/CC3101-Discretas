@@ -1,2 +1,2 @@
 # Discretas
-Tareas CC3101 Primavera 2018
+Tareas CC3101 de la Universidad de Chile, dictado en Primavera 2018
